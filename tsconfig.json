@@ -1,0 +1,32 @@
+{
+    "include": ["./src/**/*"],
+    "exclude": [],
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "lib": ["ESNext", "DOM", "DOM.Iterable"],
+
+        "moduleResolution": "bundler",
+
+        "verbatimModuleSyntax": true,
+        "stripInternal": true,
+
+        "noImplicitOverride": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+
+        "strict": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true,
+
+        "noEmit": true,
+
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    }
+}

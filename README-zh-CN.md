@@ -1,7 +1,7 @@
-# Event Manager Typescript
+# Event Manager TypeScript
 ### 简体中文 | [English](./README.md)
 
-## 🎉 一个现代化Typescript事件管理器、易用、轻量、充满幸福。
+## 🎉 一个现代化TypeScript事件管理器、易用、轻量、充满幸福。
 
 ### 🔒 类型安全
 享受从事件定义到使用的全程类型提示和校验, 告别运行时错误。
@@ -48,8 +48,8 @@ interface EVENT_TYPE_MAP {
 const eventManager = new EventManager<EVENT_TYPE_MAP>();
 
 // 获取指定事件类型的所有事件节点
-const workNodes = eventManager.getAll(EVENT_TYPE.Work);
-const sleepNodes = eventManager.getAll(EVENT_TYPE.Sleep);
+const workNodes = eventManager.getEventNodes(EVENT_TYPE.Work);
+const sleepNodes = eventManager.getEventNodes(EVENT_TYPE.Sleep);
 ```
 
 ## 🎧 监听事件
@@ -107,6 +107,12 @@ eventManager.emit(EVENT_TYPE.Sleep, "Bob", 15);
 ![alt text](image.png)
 * 字面量事件类型提示
 ![alt text](image-5.png)
+
+## 🧩 生成事件信息
+```typescript
+const info = eventManager.generateInfo();
+console.log(info);
+```
 
 ## 🛠️开发
 

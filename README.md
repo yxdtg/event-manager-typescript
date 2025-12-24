@@ -1,4 +1,4 @@
-# Event Manager Typescript
+# Event Manager TypeScript
 ### English | [简体中文](https://github.com/yxdtg/event-manager-typescript/blob/main/README-zh-CN.md)
 
 ## 🎉 A Modern TypeScript Event Manager – Easy-to-use, Lightweight, and Developer-friendly.
@@ -50,8 +50,8 @@ interface EVENT_TYPE_MAP {
 const eventManager = new EventManager<EVENT_TYPE_MAP>();
 
 // Get all event nodes of the specified event type
-const workNodes = eventManager.getAll(EVENT_TYPE.Work);
-const sleepNodes = eventManager.getAll(EVENT_TYPE.Sleep);
+const workNodes = eventManager.getEventNodes(EVENT_TYPE.Work);
+const sleepNodes = eventManager.getEventNodes(EVENT_TYPE.Sleep);
 ```
 
 ## 🎧 Listening to Events
@@ -109,6 +109,12 @@ eventManager.emit(EVENT_TYPE.Sleep, "Bob", 15);
 ![alt text](image.png)
 * Literal Event Type Hints
 ![alt text](image-5.png)
+
+## 🧩 Generating Info
+```typescript
+const info = eventManager.generateInfo();
+console.log(info);
+```
 
 ## 🛠️ Development
 

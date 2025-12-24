@@ -1,6 +1,6 @@
 {
     "name": "event-manager-typescript",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A modern TypeScript event manager: easy to use, lightweight, and a joy to work with.",
     "main": "./dist/index.js",
     "scripts": {

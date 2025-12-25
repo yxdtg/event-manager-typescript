@@ -108,9 +108,9 @@ eventManager.emit(EVENT_TYPE.Sleep, "Bob", 15);
 * 字面量事件类型提示
 ![alt text](image-5.png)
 
-## 🧩 生成事件信息
+## 🧩 获取状态信息
 ```typescript
-const info = eventManager.generateInfo();
+const info = eventManager.getStatusInfo();
 console.log(info);
 ```
 

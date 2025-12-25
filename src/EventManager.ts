@@ -203,26 +203,45 @@ export class EventManager<M extends Record<keyof M, any> = any> {
     }
 
     /**
-     * 生成事件管理器信息
-     * @param mode 模式 "simple" | "detail", 默认 "detail"
-     * @returns 事件管理器信息
+     * 获取事件管理器状态信息
+     * @returns 事件管理器状态信息
      */
-    public generateInfo(mode: "simple" | "detail" = "detail"): string {
-        let info = "Event Manager TypeScript Info Table\n\n";
+    public getStatusInfo(): string {
+        const separator = "──────────────────────────────────────────";
 
-        for (const [type, eventNodes] of this._eventNodesMapByType.entries()) {
-            info += `Type: ${String(type)} * ${eventNodes.length} \n`;
+        let info = "";
 
-            if (mode === "detail") {
-                info += "  - Event Nodes \n";
+        info += "╔════════════════════════════════════════╗\n";
+        info += "║          Event Manager Status          ║\n";
+        info += "╚════════════════════════════════════════╝\n";
+        info += "\n";
+
+        if (this._eventNodesMapByType.size === 0) {
+            info += "(No registered events)\n";
+        } else {
+            info += "Registered Events:\n";
+            info += separator + "\n";
+
+            const typeKeys = Array.from(this._eventNodesMapByType.keys());
+            typeKeys.forEach((type, index) => {
+                const eventNodes = this._eventNodesMapByType.get(type);
+                if (!eventNodes) return;
+
+                info += `[${index + 1}] Type: ${String(type)} (Count: ${eventNodes.length})\n`;
+                info += "    Event Nodes:\n";
 
                 for (const eventNode of eventNodes) {
-                    info += `  - id: ${eventNode.id}\n`;
+                    const details = [`ID: ${eventNode.id}`, `Once: ${eventNode.options?.once ? "Y" : "N"}`];
+                    info += `      - ${details.join(", ")}\n`;
                 }
-            }
 
-            info += "\n";
+                if (index < typeKeys.length - 1) {
+                    info += "\n";
+                }
+            });
         }
+
+        info += "\n" + separator;
 
         return info;
     }

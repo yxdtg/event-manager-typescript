@@ -110,9 +110,9 @@ eventManager.emit(EVENT_TYPE.Sleep, "Bob", 15);
 * Literal Event Type Hints
 ![alt text](image-5.png)
 
-## 🧩 Generating Info
+## 🧩 Getting Status Info
 ```typescript
-const info = eventManager.generateInfo();
+const info = eventManager.getStatusInfo();
 console.log(info);
 ```
 
